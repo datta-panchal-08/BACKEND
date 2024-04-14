@@ -39,4 +39,7 @@ app.get("/search",(req,res)=>{
      res.send(`<h1>Hello Mr  : ${q} and your color is ${color}</h1> `)
 });
 
-
+app.get("/rolldice",(req,res)=>{
+    let diceVal = Math.floor(Math.random()*6)+1;
+   res.render("RollDice.ejs",{num : diceVal});
+})
