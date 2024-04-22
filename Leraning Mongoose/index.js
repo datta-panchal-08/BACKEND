@@ -48,6 +48,22 @@ const User = mongoose.model("User",userSchema);
 //   console.log(res);
 // });
 
-User.updateMany({age : {$gte : 21}},{age : 22}).then((res)=>{
-  console.log(res);
-})
+// User.updateMany({age : {$gte : 21}},{age : 22}).then((res)=>{
+//   console.log(res);
+// })
+
+// User.findOneAndUpdate({name : "Datta"},{age : 22},{new : true}).then((res)=>{
+//     console.log(res);
+// })
+
+// User.findByIdAndUpdate({_id : "6625f556772ddd459b21665c"},{name : "Param"},{age : 22}).then((res)=>{
+//   console.log(res);
+// })
+
+// User.deleteOne({name :" Datta"}).then(res => console.log(res));
+
+// User.deleteMany({age : 22}).then(res => console.log(res));
+
+// User.findByIdAndDelete({_id : "6625f556772ddd459b21665c"}).then(res => console.log(res))
+
+// User.findOneAndDelete({name : "Datta"});
