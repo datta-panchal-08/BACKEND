@@ -40,7 +40,14 @@ const User = mongoose.model("User",userSchema);
 //   console.log(err);
 // })
 
-User.findById({_id : "6625fb0965e23144b6603852"}).then((data)=>{
-  console.log(data);
-}).catch((err)=> {console.log(err)});
+// User.findById({_id : "6625fb0965e23144b6603852"}).then((data)=>{
+//   console.log(data);
+// }).catch((err)=> {console.log(err)});
 
+// User.updateOne({name : "Datta"},{age : 22}).then((res)=>{
+//   console.log(res);
+// });
+
+User.updateMany({age : {$gte : 21}},{age : 22}).then((res)=>{
+  console.log(res);
+})
