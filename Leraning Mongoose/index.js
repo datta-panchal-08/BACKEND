@@ -1,3 +1,4 @@
+const { name } = require('ejs');
 const mongoose = require('mongoose');
 
 main().then(()=>{
@@ -29,12 +30,17 @@ const User = mongoose.model("User",userSchema);
 //   console.log(err);
 // })
 
-User.insertMany([
-  {name : "Datta", age : 21 , email : "datta@gmail.com"},
-  {name : "Param",age : 21 , email : "param@gmail.com"},
-  {name  : "Ganesh",age  : 22 , email : "ganesh@gmail.com"}
-]).then((res)=>{
-  console.log(res);
-}).catch((err)=>{
-  console.log(err);
-})
+// User.insertMany([
+//   {name : "Datta", age : 21 , email : "datta@gmail.com"},
+//   {name : "Param",age : 21 , email : "param@gmail.com"},
+//   {name  : "Ganesh",age  : 22 , email : "ganesh@gmail.com"}
+// ]).then((res)=>{
+//   console.log(res);
+// }).catch((err)=>{
+//   console.log(err);
+// })
+
+User.findById({_id : "6625fb0965e23144b6603852"}).then((data)=>{
+  console.log(data);
+}).catch((err)=> {console.log(err)});
+
