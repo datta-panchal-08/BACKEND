@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Whatsapp</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <h3 style="text-align: center; color: white; font-weight: 800; font: bold;">All Chats</h3>
+    <div style="position: relative; padding: 1vw 4vw; background-color: rgb(34, 34, 34); display: flex; height: 100%; flex-wrap: wrap; color: white; gap: 20px;">
+
+    <% for(let chat of chats) { %>
+            <div style="background-color: rgb(13, 158, 62); border-radius: .7vw; height: 47vh;  width: 15%; padding: 1vw; display: flex; flex-direction: column; gap: 20px;">
+                <p>From : <%= chat.from %></p>
+                <p>To : <%= chat.to %></p>
+                <p>Message : <%= chat.message %></p>
+                <p>Created_At : <%= chat.created_at.toString().split(" ")[4] %></p>
+                <p><%= chat.created_at.toString().split(" ").slice(0,4).join(" / ")  %></p>
+                <div style="display: flex; align-items: center; justify-content: center;gap: 10px;">
+                    <form  method="GET" action="/chats/<%= chat._id %>/edit">
+                        <button style="background-color: greenyellow; padding: .3vw 1vw; cursor: pointer; border: none; border-radius: .7vw; box-shadow: 5px 5px 4px black;">Edit</button>
+                     </form>
+                     <form method="POST" action="/chats/<%= chat.id %>?_method=DELETE">
+                        <button style="background-color: rgb(255, 47, 47); padding: .3vw 1vw; cursor: pointer; border: none; border-radius: .7vw; box-shadow: 5px 5px 4px black;">Delete</button>
+
+                    </form>
+                </div>
+            </div>         
+    <%  }%>    
+    <form style=" padding:0 4vw;" method="GET" action="/chats/new">
+        <button style="position: absolute; bottom: -4%; transform: translateX(-50%); left: 50%; color: white; background-color: red; padding: .4vw 3vw; margin-top: 1vw; border: none; border-radius: .7vw; cursor: pointer;">New Chat</button>
+    </form>
+</div>
+
+
+</body>
+</html>
